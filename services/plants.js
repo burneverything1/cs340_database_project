@@ -1,15 +1,19 @@
 const express = require('express')
 const router = express.Router()
+const mysql = require('../dbcon')
 
-function getPlants(res, mysql) {
-    mysql.pool.query("SELECT plantID, plantName FROM plants", (error, results) => {
-        if(error){
-            res.write(JSON.stringify(error))
-            res.end();
+//queries
+const getAllPlants = `SELECT plantID, plantName FROM plants`
+
+router.get('/', (req, res) => {
+    //get all plants request
+    mysql.pool.query(getAllPlants, (err, rows) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(rows)
         }
-        
     })
-}
+})
 
-
-exports.getPlants = getPlants
+module.exports = router
