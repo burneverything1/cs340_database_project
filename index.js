@@ -15,7 +15,8 @@ const environs = require('./services/environs')
 const regions = require('./services/regions')
 const users = require('./services/users')
 
-//add express routers
+/*add express routers
+If a request comes to URL/plants, that request is then routed to the './services/plants' file*/
 app.use('/plants', plants)
 app.use('/months', months)
 app.use('/environs', environs)
