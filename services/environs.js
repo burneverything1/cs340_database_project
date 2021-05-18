@@ -4,7 +4,7 @@ const mysql = require('../dbcon')
 
 //queries
 const getAllEnvirons = `SELECT environID, environName FROM environFactors`
-const insertEnvirons = `INSERT INTO environFactors
+const insertEnviron = `INSERT INTO environFactors
     (environName, plantEffect)
     VALUES (?, ?)`
 
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 //add environs request
 router.post('/', (req, res) => {
     let content = req.body
-    mysql.pool.query(insertEnvirons, ([content.environName, content.plantEffect]), (err, result) => {
+    mysql.pool.query(insertEnviron, ([content.environName, content.plantEffect]), (err, result) => {
         if(err){
             console.log(err);
         } else {
