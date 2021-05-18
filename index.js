@@ -10,7 +10,7 @@ app.set('port', 3000)
 
 //middleware
 app.use('/static', express.static('public'))
-app.set('mysql', mysql)
+//app.set('mysql', mysql)
 app.use('/plants', require('./services/plants'))
 
 app.use('/', express.static('public'))
