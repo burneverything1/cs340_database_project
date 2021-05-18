@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body style="background-color: rgb(105, 243, 162)"></body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Plant</title>
+</head>
+<body>
+    <label for="NewPlant">Choose a New Plant:</label>
+    <select name="AddNewPlant" id="AddNewPlant">
+      <option value="wildPlant">wildPlant</option>
+      <option value="newPlant">newPlant</option>
+      <option value="ediblePlant">ediblePlant</option>
+      <option value="newFlower">newFlower</option>
+      <option value="unhealthyPlant">unhealthyPlant</option>
+    </select>
+    <h1>Add New Plant</h1>
+    <form>
+        <div>
+            <label for="newplant">What is the name of the new wild edible plant that can be foraged?</label>
+            <input type="text" name="newplant" id="newplant">
+        </div>
+        <div>
+            <label for="plantregion">What region does this plant grow in?</label>
+            <input type="text" name="plantregion" id="plantregion">
+        </div>
+        <div>
+            <button type="submit">Add New Plant</button>
+        </div>
+    </form>
+
+
+    <h1>Add New Monthly State </h1>
+    <select name="monthly1" id="monthly1state">
+        <option value="monthly2">forageDate</option>
+        <option value="monthly3">whatPlant</option>
+        <option value="monthly4">ClimateforPlant</option>
+        <option value="monthly5">Abundance</option>
+        <option value="monthly6">RegionofPlant</option>
+      </select>
+    <form>
+        <div>
+            <label for="dayharvested">What is the start date that you foraged this plant?</label>
+            <input type="date" name="dayharvested" id="dayharvested">
+        </div>
+        <div>
+            <label for="whatplant">What plant did you harvest?</label>
+            <input type="text" name="whatplant" id="whatplant">
+        </div>
+        <div>
+            <label for="climateharvested">What was the climate like when you harvested?</label>
+            <input type="text" name="climateharvested" id="climateharvested">
+        </div>
+        <div>
+            <label for="growthlevels">How abundant was the plant growth?</label>
+            <select name="growthlevels" id="growthlevels">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div>
+            <label for="environmentalfactors">What environmental factors do you notice?</label>
+            <input type="text" name="environmentalfactors" id="environmentalfactors">
+        </div>
+        <div>
+            <label for="locationharvested">What region was the plant harvested?</label>
+            <input type="text" name="locationharvested" id="locationharvested">
+        </div>
+        <div>
+            <label for="enddateharvested">What is the end date that you foraged this plant?</label>
+            <input type="date" name="enddateharvested" id="enddateharvested">
+        </div>
+        <div>
+            <input type="submit" value="Add New Plant">
+        </div>
+    </form>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Environmental Factor</title>
+</head>
+<body>
+    <h1>Add New Environmental Impact</h1>
+    <select name="envImpact" id="envImpact">
+        <option value="plantType">selectFromTheseOptions</option>
+        <option value="plantType">plantType</option>
+        <option value="plantEffect">plantEffect</option>
+        <option value="plantQuality">plantQuality</option>
+      </select>
+    <form>
+        <div>
+            <label for="environname">What is the name of this environmental factor?</label>
+            <input type="text" name="environname" id="environname">
+        </div>
+        <div>
+            <label for="planttype">What is the plant type in this environment?</label>
+            <input type="text" name="planttype" id="planttype">
+        </div>
+        <div>
+            <label for="planteffect">What effect does this usually have on plants?</label>
+            <input type="text" name="planteffect" id="planteffect">
+        </div>
+        <div>
+            <label for="plantqualtiy">What is the plant quality in this environment?</label>
+            <input type="text" name="plantquality" id="plantquality">
+        </div>
+        <div>
+            <button type="submit">Add </button>
+        </div>
+    </form>
+    <h1>Add New Region Here</h1>
+    <select name="plantRegion" id="plantRegion">
+        <option value="plantType">selectFromTheseOptions</option>
+        <option value="USRegion">USRegion</option>
+        <option value="plantClimate">plantClimate</option>
+        <option value="region">Region</option>
+      </select>
+    <form>
+        <div>
+            <label for="regionname">Input Region Name:</label>
+            <input type="text" name="regionname" id="regionname">
+        </div>
+        <div>
+            <label for="regionstate">US State Region is located in:</label>
+            <input type="text" name="regionstate" id="regionstate">
+        </div>
+        <div>
+            <label for="regionclimate">What is the climate in this region?</label>
+            <input type="text" name="regionclimate" id="regionclimate">
+        </div>
+        <div>
+            <button type="submit">Add Region</button>
+        </div>
+    </form>
+    <table style="width:40%">
+        <tr>
+          <th>Add New Plant</th>
+          <th>Add Monthly State</th>
+          <th>Add New Environmental Impact</th>
+          <th>Add New Region</th>
+        </tr>
+        <tr>
+          <td>Cactus</td>
+          <td>July</td>
+          <td>Humidity</td>
+          <td>West
+            <button> Delete </button>
+          </td>
+          <td>
+            <button> Update </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Mashroom</td>
+          <td>September</td>
+          <td>Temperature</td>
+          <td>South
+            <button>Delete </button>
+          </td>
+          <td>
+            <button>Update </button>
+          </td>
+        </tr>
+        <tr>
+            <td>Flower</td>
+            <td>May</td>
+            <td>Wind Levels</td>
+            <td>North
+                <button>Delete </button>
+              </td>
+              <td>
+                <button>Update </button>
+              </td>          </tr>
+
+      </table>
+      <div>
+        <button>Delete </button>
+        <button>Update </button>
+    </div> 
+    <h1>Plant Search </h1>
+    <form>
+        <div>
+            <label for="plantname">Enter Plant Name:</label>
+            <input type="text" name="plantname" id="plantname">
+        </div>
+        <h1>Search for Plant</h1>
+        <label for="plantSearch">Select a Plant:</label>
+    <select name="plantSearch" id="plantSearch">
+      <option value="Flower">Flower</option>
+      <option value="Vegetable">Vegetable</option>
+      <option value="Mushroom">Mushroom</option>
+      <option value="Organges">Oranges</option>
+      <option value="Cactus">Cactus</option>
+    </select>
+        <div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <form>
+            <h1> Search for Plant</h1>
+
+            <label for="searchForPlant">Plant Name: </label>
+            <input type="text" id="searchForPlant"><br>
+
+            <p>What is the plant you are looking for?</p>
+            <input type="checkbox" id="flowerPlant" value="" checked="">
+            <label for="flowerPlant">Flowers</label><br>
+
+            <input type="checkbox" id="vegetablePlant" value="" checked="">
+            <label for="vegetablePlant">Vegetable Plants</label><br>
+
+            <input type="checkbox" id="fruitPlant" value="" checked="">
+            <label for="fruitPlant">Fruit Plant</label><br>
+
+            <input type="checkbox" id="rarePlants" value="" checked="">
+            <label for="rarePlants">Rare Plants</label><br><br>
+
+            <input type="submit" value="search">
+    </form>
+</div>
+</body>
+</html>
