@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
     })
 })
 
+//add plant request
 router.post('/', (req, res) => {
-    let content = {}
-    content = req.body
+    let content = req.body
     mysql.pool.query(insertPlant, 
         ([content.plantName, content.harvestSeasonStart, content.harvestSeasonEnd, content.flavorProfile, content.eatenRaw, content.howToCook]),
         (err, result) => {

@@ -1,0 +1,7 @@
+POST http://localhost:3000/environs
+Content-Type: application/json
+
+{
+    "environName": "testrain",
+    "plantEffect": "testrainkillplant"
+}
