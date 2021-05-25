@@ -13,7 +13,7 @@ export function post(path, content, callback) {
     xhttp.send(JSON.stringify(content));
 }
 
-export function get(path, content, callback) {
+export function get(path, callback) {
     var xhttp = new XMLHttpRequest();
     if (callback !== undefined) {
         xhttp.onreadystatechange = function () {
