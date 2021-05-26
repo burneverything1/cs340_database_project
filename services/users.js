@@ -25,8 +25,11 @@ router.post('/', (req, res) => {
     mysql.pool.query(insertUser, ([content.username, content.favoritePlants]), (err, result) => {
         if(err){
             console.log(err);
+            //Send sql error to client for debugging
+            res.status(500).send(err.sqlMessage);
         } else {
-            res.send(result)
+            //If it was successfull, all the client needs to know is that it worked
+            res.send(true)
         }
     })
 })

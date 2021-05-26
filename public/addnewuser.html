@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body style="background-color: rgb(44, 172, 76)"></body>
+
+<body style="background-color: rgb(44, 172, 76)"></body>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New User</title>
 </head>
+
 <body>
+    <script type="module" src="addnewuser.js"></script>
     <h1>Add New User</h1>
-    <select name="NewUser" id="NewUser">
-        <option value="username">Username</option>
-        <option value="favPlant">FavoritePlant</option>
-        <option value="user">User</option>
-      </select>
-    <form>
+    <form id="newUserForm" name="newUserForm">
         <div>
             <label for="username">Enter username:</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" form="newUserForm">
         </div>
         <div>
-            <label for="favoriteplants">What are your favorite plants?</label>
-            <input type="text" name="favoriteplants" id="favoriteplants">
+            <label for="favoritePlants">What are your favorite plants?</label>
+            <input type="text" name="favoritePlants">
         </div>
         <div>
             <button type="submit">Add User</button>
@@ -70,59 +69,30 @@
             <button type="submit">Save New User Plant</button>
         </div>
     </form>
-</form>
-<table style="width:40%">
-  <tr>
-    <th>Add New User</th>
-    <th>User Name</th>
-    <th>Plant ID</th>
-    <th>Growth Level</th>
-    <th>Favorite Plants</th>
-
-  </tr>
-  <tr>
-    <td>User 1</td>
-    <td>Angela</td>
-    <td>Cactus</td>
-    <td>Fast</td>
-    <td>Flowers </td>
-        <td> <button>Delete </button> </td>
-
-      <td>
-        <button>Update </button>
-      </td>  </tr>
-  <tr>
-    <td>User 2</td>
-    <td>Sierra</td>
-    <td>Flower</td>
-    <td>Slow</td>
-    <td>Fruit Plants </td>
-        <td> <button>Delete </button> </td>
-
-      <td>
-        <button>Update </button>
-      </td>  </tr>
-  <tr>
-      <td>User 3</td>
-      <td>Crystal</td>
-      <td>Mushroom</td>
-      <td>Normal</td>
-      <td>Vegetable Plants </td>
-      <td> <button>Delete </button> </td>
-
-    <td>
-      <button>Update </button>
-    </td>  </tr>
-</table> 
-<h1>User Search </h1>
-<form>
-  <div>
-      <label for="regionname">Enter User Name:</label>
-      <input type="text" name="username" id="username">
-  </div>
-  <div>
-      <input type="submit" value="Search">
-  </div>
-</form>
+    </form>
+    <table style="width:40%">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Plant</th>
+                <th>Day Harvested</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody id="savedUserPlantsTable">// 
+        </tbody>
+    </table>
+    <h1>User Search </h1>
+    <form id="userSearchForm">
+        <div>
+            <label for="username">Enter User Name:</label>
+            <input type="text" name="username">
+        </div>
+        <div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <div id="searchResult"></div>
 </body>
+
 </html>
