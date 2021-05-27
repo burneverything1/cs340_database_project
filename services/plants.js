@@ -7,6 +7,12 @@ const getAllPlants = `SELECT plantID, plantName FROM plants`
 const insertPlant = `INSERT INTO plants 
     (plantName, harvestSeasonStart, harvestSeasonEnd, flavorProfile, eatenRaw, howToCook) 
     VALUES (?, ?, ?, ?, ?, ?)`
+const getSinglePlant = `SELECT * FROM plants
+    WHERE plantID = (?)`
+const updatePlant = `UPDATE plants SET plantName=?, harvestSeasonStart=?, harvestSeasonEnd=?,
+    flavorProfile=?, eatenRaw=?, howToCook=?
+    WHERE plantID = ?`
+const deletePlant = `DELETE FROM plants WHERE plantID = (?)`
 
 //get all plants request
 router.get('/', (req, res) => {
@@ -31,6 +37,41 @@ router.post('/', (req, res) => {
                 res.send(result)
             }
         })
+})
+
+// get single request
+router.get('/:id', (req, res) => {
+    mysql.pool.query(getSinglePlant, ([req.params.id]), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+// update
+router.put('/:id', (req, res) => {
+    let content = req.body
+    mysql.pool.query(updatePlant, ([content.plantName, content.harvestSeasonStart, content.harvestSeasonEnd,
+    content.flavorProfile, content.eatenRaw, content.howToCook, req.params.id]), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+// delete
+router.delete('/:id', (req, res) => {
+    mysql.pool.query(deletePlant, ([req.params.id]), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
 })
 
 module.exports = router
