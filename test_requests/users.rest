@@ -5,3 +5,21 @@ Content-Type: application/json
     "username": "testtim",
     "favoritePlants": "testmushroom"
 }
+
+###
+
+GET http://localhost:3000/users/15
+
+###
+
+PUT http://localhost:3000/users/15
+Content-Type: application/json
+
+{
+    "username": "updatetest",
+    "favoritePlants": "testupdate"
+}
+
+###
+
+DELETE http://localhost:3000/users/15
