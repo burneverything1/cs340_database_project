@@ -7,7 +7,7 @@ const getAllEnvirons = `SELECT environID, environName FROM environFactors`
 const insertEnviron = `INSERT INTO environFactors
     (environName, plantEffect)
     VALUES (?, ?)`
-const getSingleEnviron = `SELECT environID, environName FROM environFactors
+const getSingleEnviron = `SELECT * FROM environFactors
     WHERE environID = (?)`
 const updateEnviron = `UPDATE environFactors SET environName=?, plantEffect=?
     WHERE environID = ?`
