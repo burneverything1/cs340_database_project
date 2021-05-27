@@ -8,10 +8,10 @@ const insertEnviron = `INSERT INTO environFactors
     (environName, plantEffect)
     VALUES (?, ?)`
 const getSingleEnviron = `SELECT environID, environName FROM environFactors
-    WHERE id = (?)`
+    WHERE environID = (?)`
 const updateEnviron = `UPDATE environFactors SET environName=?, plantEffect=?
-    WHERE id = ?`
-const deleteEnviron = `DELETE FROM environFactors WHERE id = (?)`
+    WHERE environID = ?`
+const deleteEnviron = `DELETE FROM environFactors WHERE environID = (?)`
 
 //get all environs request
 router.get('/', (req, res) => {

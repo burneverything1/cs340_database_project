@@ -4,6 +4,10 @@ const app = express()
 
 app.use(express.static('public'))
 
+//logging module
+const morgan = require('morgan')
+app.use(morgan('tiny'))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('port', 3000)
