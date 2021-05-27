@@ -9,7 +9,9 @@ const insertEnviron = `INSERT INTO environFactors
     VALUES (?, ?)`
 const getSingleEnviron = `SELECT environID, environName FROM environFactors
     WHERE id = (?)`
-const ``
+const updateEnviron = `UPDATE environFactors SET environName=?, plantEffect=?
+    WHERE id = ?`
+const deleteEnviron = `DELETE FROM environFactors WHERE id = (?)`
 
 //get all environs request
 router.get('/', (req, res) => {
@@ -48,8 +50,24 @@ router.get('/:id', (req, res) => {
 // update
 router.put('/:id', (req, res) => {
     let content = req.body
+    mysql.pool.query(updateEnviron, ([content.environName, content.plantEffect, req.params.id]), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+})
 
-
+// delete
+router.delete('/:id', (req, res) => {
+    mysql.pool.query(deleteEnviron, ([req.params.id]), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
 })
 
 module.exports = router
