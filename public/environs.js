@@ -6,6 +6,11 @@ function createNewEnviron(user) {
     AJAX.post("/environs/", user, () => location.reload())
 }
 
+//UPDATE Environ
+function editEnvironment({ environID, environName, plantEffect }) {
+    AJAX.put(`/environs/${environID}`, { environName, plantEffect }, () => location.reload())
+}
+
 
 function getAllEnvirnoments(callback) {
     AJAX.get("/environs/", callback);
