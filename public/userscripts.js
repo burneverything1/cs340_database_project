@@ -45,6 +45,7 @@ function populateUserTable(users) {
             const deleteButton = document.createElement("button");
             const deleteButtonText = document.createTextNode("Delete");
 
+            // delete button 
             deleteButton.addEventListener("click", () => {
                 AJAX.del(`/users/${user.userID}`, () => location.reload());
             });
