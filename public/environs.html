@@ -13,22 +13,14 @@
 <body>
   <script type="module" src="environs.js"></script>
   <h1>Add New Environmental Factor</h1>
-  <label for="EnvFactor">Choose a Environmental Factor:</label>
-  <select name="EnvFactor" id="environmentalfactor">
-    <option value="warm">Warm</option>
-    <option value="cold">Cold</option>
-    <option value="dry">Dry</option>
-    <option value="humid">Humid</option>
-    <option value="Windy">Windy</option>
-  </select>
-  <form>
+  <form id="newEnvironForm">
     <div>
-      <label for="environname">What is the name of this environmental factor?</label>
-      <input type="text" name="environname" id="environname">
+      <label for="environName">What is the name of this environmental factor?</label>
+      <input type="text" name="environName">
     </div>
     <div>
-      <label for="planteffect">What effect does this usually have on plants?</label>
-      <input type="text" name="planteffect" id="planteffect">
+      <label for="plantEffect">What effect does this usually have on plants?</label>
+      <input type="text" name="plantEffect">
     </div>
     <div>
       <button type="submit">Add </button>
@@ -40,6 +32,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Effect</th>
       </tr>
     </thead>
     <tbody id="allEnvironTable"></tbody>
@@ -52,8 +45,12 @@
       </select>
     </div>
     <div>
-      <label for="environName">Enter Environmental Factor:</label>
+      <label for="environName">New Environment Name</label>
       <input type="text" name="environName">
+    </div>
+    <div>
+      <label for="plantEffect">New Plant Effect</label>
+      <input type="text" name="plantEffect">
     </div>
     <div>
       <button type="submit">Edit Environmental Factor</button>
