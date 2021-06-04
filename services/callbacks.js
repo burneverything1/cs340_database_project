@@ -27,5 +27,16 @@ const addPost = (req, res, query, attributes) => {
     })
 }
 
+const getSingle = (req, res, query, id) => {
+    mysql.pool.query(query, (id), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+}
+
 exports.getAll = getAll
 exports.addPost = addPost
+exports.getSingle = getSingle

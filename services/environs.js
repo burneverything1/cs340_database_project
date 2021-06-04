@@ -27,6 +27,9 @@ router.post('/', (req, res) => {
 
 // get single environs request
 router.get('/:id', (req, res) => {
+    callbacks.getSingle(req, res, getSingleEnviron, req.params.id)
+
+    /*
     mysql.pool.query(getSingleEnviron, ([req.params.id]), (err, result) => {
         if(err){
             console.log(err);
@@ -34,6 +37,7 @@ router.get('/:id', (req, res) => {
             res.send(result)
         }
     })
+    */
 })
 
 // update
