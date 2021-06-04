@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const mysql = require('../dbcon')
 
+const callbacks = require('./callbacks')
+
 //queries
 const getAllEnvirons = `SELECT environID, environName FROM environFactors`
 const insertEnviron = `INSERT INTO environFactors
@@ -15,13 +17,7 @@ const deleteEnviron = `DELETE FROM environFactors WHERE environID = (?)`
 
 //get all environs request
 router.get('/', (req, res) => {
-    mysql.pool.query(getAllEnvirons, (err, result) => {
-        if(err){
-            console.log(err);
-        } else {
-            res.send(result)
-        }
-    })
+    callbacks.getAll(req, res, getAllEnvirons)
 })
 
 //add environs request
