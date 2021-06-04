@@ -8,6 +8,10 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3000/regions
+
+###
+
 GET http://localhost:3000/regions/5
 
 ###

@@ -29,7 +29,7 @@ app.use('/environs', environs)
 app.use('/regions', regions)
 app.use('/users', users)
 
-//app.use('/regionenv', regionenv)
+app.use('/regionenv', regionenv)
 
 
 app.listen(app.get('port'), function() {

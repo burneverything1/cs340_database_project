@@ -37,6 +37,16 @@ const getSingle = (req, res, query, id) => {
     })
 }
 
+const getSingleComposite = (req, res, query, id1, id2) => {
+    mysql.pool.query(query, ([id1, id2]), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })    
+}
+
 const updatePut = (req, res, query, attributes, id) => {
     let content = req.body
     let inputs = []
@@ -54,6 +64,23 @@ const updatePut = (req, res, query, attributes, id) => {
     } )
 }
 
+const updateComposite = (req, res, query, attributes, id1, id2) => {
+    let content = req.body
+    let inputs = []
+    attributes.forEach(element => {
+        inputs.push(content[element])
+    })
+    inputs.push(id1, id2)
+
+    mysql.pool.query(query, (inputs), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+}
+
 const deleteSingle = (req, res, query, id) => {
     mysql.pool.query(query, (id), (err, result) => {
         if(err){
@@ -69,3 +96,5 @@ exports.addPost = addPost
 exports.getSingle = getSingle
 exports.updatePut = updatePut
 exports.deleteSingle = deleteSingle
+exports.getSingleComposite = getSingleComposite
+exports.updateComposite = updateComposite
