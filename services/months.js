@@ -3,7 +3,7 @@ const router = express.Router()
 const mysql = require('../dbcon')
 
 //queries
-const getAllMonths = `SELECT monthID, monthName FROM months`
+const getAllMonths = `SELECT * FROM months`
 const getSingleMonth = `SELECT monthID, monthName FROM months
     WHERE monthID = (?)`
 //we don't need to insert months since all the months are already there

@@ -3,7 +3,7 @@ const router = express.Router()
 const mysql = require('../dbcon')
 
 //queries
-const getAllUsers = `SELECT userID, username, favoritePlants FROM users`
+const getAllUsers = `SELECT * FROM users`
 const insertUser = `INSERT INTO users
     (username, favoritePlants)
     VALUES (?, ?)`

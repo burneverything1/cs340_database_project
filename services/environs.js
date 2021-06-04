@@ -5,7 +5,7 @@ const mysql = require('../dbcon')
 const callbacks = require('./callbacks')
 
 //queries
-const getAllEnvirons = `SELECT environID, environName FROM environFactors`
+const getAllEnvirons = `SELECT * FROM environFactors`
 const insertEnviron = `INSERT INTO environFactors
     (environName, plantEffect)
     VALUES (?, ?)`

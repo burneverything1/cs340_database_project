@@ -3,7 +3,7 @@ const router = express.Router()
 const mysql = require('../dbcon')
 
 //queries
-const getAllRegions = `SELECT regionID, regionName FROM regions`
+const getAllRegions = `SELECT * FROM regions`
 const insertRegion = `INSERT INTO regions
     (regionName, state)
     VALUES (?, ?)`
