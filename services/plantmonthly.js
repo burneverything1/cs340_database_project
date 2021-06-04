@@ -7,33 +7,38 @@ const callbacks = require('./callbacks')
 const attributes = ['plantID', 'monthID', 'harvestReady', 'monthState']
 
 //queries
-const getAllPlantMonthly = `SELECT * FROM plantMonthly`
-const insertPlantMonthly = `INSERT INTO plantMonthly
+const getAllPlantMonthly = `SELECT * FROM plantMonthlyState`
+const insertPlantMonthly = `INSERT INTO plantMonthlyState
     (plantID, monthID, harvestReady, monthState)
     VALUES (?, ?, ?, ?)`
+const getSinglePlantMonthly = `SELECT * FROM plantMonthlyState
+    WHERE plantID =? AND monthID=?`
+const updatePlantMonthly = `UPDATE plantMonthlyState SET plantID=?, monthID=?, harvestReady=?, monthState=?
+    where plantID =? AND monthID=?`
+const deletePlantMonthly = `DELETE FROM plantMonthlyState WHERE plantID =? AND monthID=?`
 
 // get all
 router.get('/', (req, res) => {
-    callbacks.getAll(req, res, getAllRegionEnv)
+    callbacks.getAll(req, res, getAllPlantMonthly)
 })
 
 // add
 router.post('/', (req, res) => {
-    callbacks.addPost(req, res, insertRegionEnviron, attributes)
+    callbacks.addPost(req, res, insertPlantMonthly, attributes)
 })
 
 // get single
-router.get('/:environID/:regionID', (req, res) => {
-    callbacks.getSingleComposite(req, res, getSingleRegionEnviron, req.params.environID, req.params.regionID)
+router.get('/:plantID/:monthID', (req, res) => {
+    callbacks.getSingleComposite(req, res, getSinglePlantMonthly, req.params.plantID, req.params.monthID)
 })
 
 // update
-router.put('/:environID/:regionID', (req, res) => {
-    callbacks.updateComposite(req, res, updateRegionEnv, attributes, req.params.environID, req.params.regionID)
+router.put('/:plantID/:monthID', (req, res) => {
+    callbacks.updateComposite(req, res, updatePlantMonthly, attributes, req.params.plantID, req.params.monthID)
 })
 
-router.delete('/:environID/:regionID', (req, res) => {
-    callbacks.deleteComposite(req, res, deleteEnviron, req.params.environID, req.params.regionID)
+router.delete('/:plantID/:monthID', (req, res) => {
+    callbacks.deleteComposite(req, res, deletePlantMonthly, req.params.plantID, req.params.monthID)
 })
 
 module.exports = router

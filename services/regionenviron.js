@@ -15,7 +15,7 @@ const getSingleRegionEnviron = `SELECT * FROM regionEnviron
     WHERE environID = (?) AND regionID = (?)`
 const updateRegionEnv = `UPDATE regionEnviron SET environID=?, regionID=?
     WHERE environID=? AND regionID=?`
-const deleteEnviron = `DELETE FROM regionEnviron WHERE environID=? AND regionID=?`
+const deleteRegionEnv = `DELETE FROM regionEnviron WHERE environID=? AND regionID=?`
 
 // get all regionEnviron
 router.get('/', (req, res) => {
@@ -38,7 +38,7 @@ router.put('/:environID/:regionID', (req, res) => {
 })
 
 router.delete('/:environID/:regionID', (req, res) => {
-    callbacks.deleteComposite(req, res, deleteEnviron, req.params.environID, req.params.regionID)
+    callbacks.deleteComposite(req, res, deleteRegionEnv, req.params.environID, req.params.regionID)
 })
 
 module.exports = router
