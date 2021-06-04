@@ -30,52 +30,49 @@ function populateEnvironFactorsTable(envs) {
     editOptions.innerHTML = "";
     //Fill new table data
     for (const env of envs) {
-        //Populate environ table
-        const row = document.createElement("tr");
-        body.appendChild(row);
-        const option = document.createElement("option");
-        editOptions.appendChild(option);
-        //Get more information
-        getSingleEnviroment(env.environID, ([env]) => {
-            {
-                const idCell = document.createElement("td");
-                const idText = document.createTextNode(env.environID);
+        {   
+            //Populate environ table
+            const row = document.createElement("tr");
+            body.appendChild(row);
+            const idCell = document.createElement("td");
+            const idText = document.createTextNode(env.environID);
 
-                const nameCell = document.createElement("td");
-                const nameText = document.createTextNode(env.environName);
+            const nameCell = document.createElement("td");
+            const nameText = document.createTextNode(env.environName);
 
-                const effectCell = document.createElement("td");
-                const effectText = document.createTextNode(env.plantEffect);
+            const effectCell = document.createElement("td");
+            const effectText = document.createTextNode(env.plantEffect);
 
-                const deleteCell = document.createElement("td");
-                const deleteButton = document.createElement("button");
-                const deleteButtonText = document.createTextNode("Delete");
+            const deleteCell = document.createElement("td");
+            const deleteButton = document.createElement("button");
+            const deleteButtonText = document.createTextNode("Delete");
 
-                deleteButton.addEventListener("click", () => {
-                    AJAX.del(`/environs/${env.environID}`, () => location.reload());
-                });
+            deleteButton.addEventListener("click", () => {
+                AJAX.del(`/environs/${env.environID}`, () => location.reload());
+            });
 
-                row.appendChild(idCell);
-                row.appendChild(nameCell);
-                row.appendChild(effectCell);
-                row.appendChild(deleteCell);
+            row.appendChild(idCell);
+            row.appendChild(nameCell);
+            row.appendChild(effectCell);
+            row.appendChild(deleteCell);
 
-                idCell.appendChild(idText);
+            idCell.appendChild(idText);
 
-                nameCell.appendChild(nameText);
+            nameCell.appendChild(nameText);
 
-                effectCell.appendChild(effectText);
+            effectCell.appendChild(effectText);
 
-                deleteCell.appendChild(deleteButton);
-                deleteButton.appendChild(deleteButtonText);
-            }
-            //Populate edit form
-            {
-                const optionText = document.createTextNode(env.environName);
-                option.appendChild(optionText);
-                option.setAttribute("value", env.environID);
-            }
-        });
+            deleteCell.appendChild(deleteButton);
+            deleteButton.appendChild(deleteButtonText);
+        }
+        //Populate edit form
+        {
+            const option = document.createElement("option");
+            editOptions.appendChild(option);
+            const optionText = document.createTextNode(env.environName);
+            option.appendChild(optionText);
+            option.setAttribute("value", env.environID);
+        }
     }
 }
 
@@ -84,15 +81,15 @@ function populateEnvironFactorsTable(envs) {
 document.addEventListener('DOMContentLoaded', () => {
     //bind createNewUser to form
     document.getElementById("newEnvironForm")
-    .addEventListener("submit", AJAX.formSubmitAction((data) => {
-        createNewEnviron(data);
-    }));
+        .addEventListener("submit", AJAX.formSubmitAction((data) => {
+            createNewEnviron(data);
+        }));
 
     //bind editEnvironFactor to form
     document.getElementById("editEnvironForm")
-    .addEventListener("submit", AJAX.formSubmitAction((data) => {
-        editEnvironment(data);
-    }));
+        .addEventListener("submit", AJAX.formSubmitAction((data) => {
+            editEnvironment(data);
+        }));
 
     //Populate the environmental factors table
     getAllEnvirnoments(populateEnvironFactorsTable);
