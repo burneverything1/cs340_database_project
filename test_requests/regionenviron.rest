@@ -8,6 +8,10 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3000/regionenv/
+
+###
+
 GET http://localhost:3000/regionenv/7/1
 
 ###
@@ -19,3 +23,7 @@ Content-Type: application/json
     "environID": "9",
     "regionID": "1"
 }
+
+###
+
+DELETE http://localhost:3000/regionenv/9/1

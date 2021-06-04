@@ -91,6 +91,16 @@ const deleteSingle = (req, res, query, id) => {
     })
 }
 
+const deleteComposite = (req, res, query, id1, id2) => {
+    mysql.pool.query(query, ([id1, id2]), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+}
+
 exports.getAll = getAll
 exports.addPost = addPost
 exports.getSingle = getSingle
@@ -98,3 +108,4 @@ exports.updatePut = updatePut
 exports.deleteSingle = deleteSingle
 exports.getSingleComposite = getSingleComposite
 exports.updateComposite = updateComposite
+exports.deleteComposite = deleteComposite

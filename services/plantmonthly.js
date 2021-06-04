@@ -4,25 +4,20 @@ const mysql = require('../dbcon')
 
 const callbacks = require('./callbacks')
 
-const attributes = ['environID', 'regionID']
+const attributes = ['plantID', 'monthID', 'harvestReady', 'monthState']
 
 //queries
-const getAllRegionEnv = `SELECT * FROM regionEnviron`
-const insertRegionEnviron = `INSERT INTO regionEnviron
-    (environID, regionID)
-    VALUES (?, ?)`
-const getSingleRegionEnviron = `SELECT * FROM regionEnviron
-    WHERE environID = (?) AND regionID = (?)`
-const updateRegionEnv = `UPDATE regionEnviron SET environID=?, regionID=?
-    WHERE environID=? AND regionID=?`
-const deleteEnviron = `DELETE FROM regionEnviron WHERE environID=? AND regionID=?`
+const getAllPlantMonthly = `SELECT * FROM plantMonthly`
+const insertPlantMonthly = `INSERT INTO plantMonthly
+    (plantID, monthID, harvestReady, monthState)
+    VALUES (?, ?, ?, ?)`
 
-// get all regionEnviron
+// get all
 router.get('/', (req, res) => {
     callbacks.getAll(req, res, getAllRegionEnv)
 })
 
-// add regionEnviron
+// add
 router.post('/', (req, res) => {
     callbacks.addPost(req, res, insertRegionEnviron, attributes)
 })
