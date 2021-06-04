@@ -28,28 +28,11 @@ router.post('/', (req, res) => {
 // get single environs request
 router.get('/:id', (req, res) => {
     callbacks.getSingle(req, res, getSingleEnviron, req.params.id)
-
-    /*
-    mysql.pool.query(getSingleEnviron, ([req.params.id]), (err, result) => {
-        if(err){
-            console.log(err);
-        } else {
-            res.send(result)
-        }
-    })
-    */
 })
 
 // update
 router.put('/:id', (req, res) => {
-    let content = req.body
-    mysql.pool.query(updateEnviron, ([content.environName, content.plantEffect, req.params.id]), (err, result) => {
-        if(err) {
-            console.log(err);
-        } else {
-            res.send(result)
-        }
-    })
+    callbacks.updatePut(req, res, updateEnviron, ['environName', 'plantEffect'], req.params.id)
 })
 
 // delete
