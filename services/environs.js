@@ -37,6 +37,9 @@ router.put('/:id', (req, res) => {
 
 // delete
 router.delete('/:id', (req, res) => {
+    callbacks.deleteSingle(req, res, deleteEnviron, req.params.id)
+
+    /*
     mysql.pool.query(deleteEnviron, ([req.params.id]), (err, result) => {
         if(err){
             console.log(err);
@@ -44,6 +47,7 @@ router.delete('/:id', (req, res) => {
             res.send(result)
         }
     })
+    */
 })
 
 module.exports = router

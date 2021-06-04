@@ -16,7 +16,7 @@ GET http://localhost:3000/environs/11
 
 ###
 
-PUT http://localhost:3000/environs/5
+PUT http://localhost:3000/environs/12
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/environs/5
+DELETE http://localhost:3000/environs/12

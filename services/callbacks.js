@@ -37,6 +37,35 @@ const getSingle = (req, res, query, id) => {
     })
 }
 
+const updatePut = (req, res, query, attributes, id) => {
+    let content = req.body
+    let inputs = []
+    attributes.forEach(element => {
+        inputs.push(content[element])
+    })
+    inputs.push(id)
+
+    mysql.pool.query(query, (inputs), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    } )
+}
+
+const deleteSingle = (req, res, query, id) => {
+    mysql.pool.query(query, (id), (err, result) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+}
+
 exports.getAll = getAll
 exports.addPost = addPost
 exports.getSingle = getSingle
+exports.updatePut = updatePut
+exports.deleteSingle = deleteSingle
