@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color: rgb(135, 182, 154)">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add New Region</title>
+    </head>
+
+    <body>
+        <script type="module" src="collectedplants.js"></script>
+        <h1>Add New Saved User Plant</h1>
+        <form>
+            <div>
+                <label for="username_plant">What is your username?</label>
+                <input type="text" name="username_plant" id="username_plant">
+            </div>
+            <div>
+                <label for="whatplant">What plant did you harvest?</label>
+                <input type="text" name="whatplant" id="whatplant">
+            </div>
+            <div>
+                <label for="dayharvested">What day did you harvest?</label>
+                <input type="date" name="dayharvested" id="dayharvested">
+            </div>
+            <div>
+                <label for="growthlevels">How abundant was the plant growth?</label>
+                <select name="growthlevels" id="growthlevels">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <label for="flavorlevels">How tasty was the plant?</label>
+                <select name="flavorlevels" id="flavorlevels">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <label for="locationharvested">What region was the plant harvested?</label>
+                <input type="text" name="locationharvested" id="locationharvested">
+            </div>
+            <div>
+                <button type="submit">Save New User Plant</button>
+            </div>
+        </form>
+        </form>
+        <table style="width:40%">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Plant</th>
+                    <th>Day Harvested</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody id="savedUserPlantsTable">
+            </tbody>
+        </table>
+    </body>
+
+</html>
