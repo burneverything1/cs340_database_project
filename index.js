@@ -22,6 +22,8 @@ const users = require('./services/users')
 const regionenv = require('./services/regionenviron')
 const plantmonthly = require('./services/plantmonthly')
 const plantenv = require('./services/plantenviron')
+const plantregion = require('./services/plantregion')
+const savedplants = require('./services/saveduserplants')
 
 /*add express routers
 If a request comes to URL/plants, that request is then routed to the './services/plants' file*/
@@ -34,6 +36,8 @@ app.use('/users', users)
 app.use('/regionenv', regionenv)
 app.use('/plantmonthly', plantmonthly)
 app.use('/plantenv', plantenv)
+app.use('/plantregion', plantregion)
+app.use('/savedplants', savedplants)
 
 
 app.listen(app.get('port'), function() {
