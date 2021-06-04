@@ -22,14 +22,7 @@ router.get('/', (req, res) => {
 
 //add environs request
 router.post('/', (req, res) => {
-    let content = req.body
-    mysql.pool.query(insertEnviron, ([content.environName, content.plantEffect]), (err, result) => {
-        if(err){
-            console.log(err);
-        } else {
-            res.send(result)
-        }
-    })
+    callbacks.addPost(req, res, insertEnviron, ['environName', 'plantEffect'])
 })
 
 // get single environs request

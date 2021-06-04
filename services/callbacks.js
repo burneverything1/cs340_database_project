@@ -11,4 +11,21 @@ const getAll = (req, res, query) => {
     })
 }
 
+const addPost = (req, res, query, attributes) => {
+    let content = req.body
+    let inputs = []
+    attributes.forEach(element => {
+        inputs.push(content[element])
+    });
+
+    mysql.pool.query(query, (inputs), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
+}
+
 exports.getAll = getAll
+exports.addPost = addPost
