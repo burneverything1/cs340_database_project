@@ -14,6 +14,8 @@ const updatePlant = `UPDATE plants SET plantName=?, harvestSeasonStart=?, harves
     WHERE plantID = ?`
 const deletePlant = `DELETE FROM plants WHERE plantID = (?)`
 
+const searchPlants = `SELECT * FROM plants WHERE LOWER(plantName) LIKE CONCAT('%', LOWER((?)), '%')`
+
 //get all plants request
 router.get('/', (req, res) => {
     mysql.pool.query(getAllPlants, (err, result) => {
@@ -28,15 +30,25 @@ router.get('/', (req, res) => {
 //add plant request
 router.post('/', (req, res) => {
     let content = req.body
-    mysql.pool.query(insertPlant, 
+    mysql.pool.query(insertPlant,
         ([content.plantName, content.harvestSeasonStart, content.harvestSeasonEnd, content.flavorProfile, content.eatenRaw, content.howToCook]),
         (err, result) => {
-            if(err){
+            if (err) {
                 console.log(err);
             } else {
                 res.send(result)
             }
         })
+})
+
+router.get('/search/:pattern', (req, res) => {
+    mysql.pool.query(searchPlants, ([req.params.pattern]), (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result)
+        }
+    })
 })
 
 // get single request
