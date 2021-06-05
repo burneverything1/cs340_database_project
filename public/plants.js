@@ -1,4 +1,5 @@
 import * as AJAX from "./AJAX.js";
+import { getAllPlants } from "./API.js";
 
 //plant.eatenRaw is actually undefined, or "on"
 //convert plant.eatenRaw to be 1 or 0
@@ -23,11 +24,6 @@ function editPlant({ plantID, ...plant }) {
 //SEARCH plants by name
 function searchPlants(pattern, callback) {
     AJAX.get(`/plants/search/${pattern}`, callback);
-}
-
-//READ all users
-function getAllPlants(callback) {
-    AJAX.get("/plants/", callback);
 }
 
 //populate allPlantsTable
