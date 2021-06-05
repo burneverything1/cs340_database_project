@@ -4,8 +4,7 @@ Content-Type: application/json
 {
     "plantID": "1",
     "monthID": "3",
-    "harvestReady": "True",
-    "monthState": "Bitter Taste"
+    "harvestReady": "true, but subprime"
 }
 
 ###
@@ -24,10 +23,9 @@ Content-Type: application/json
 {
     "plantID": "1",
     "monthID": "3",
-    "harvestReady": "True",
-    "monthState": "updated test"
+    "harvestReady": "false"
 }
 
 ###
 
-DELETE http://localhost:3000/plantmonthly/1/3
+DELETE http://localhost:3000/plantmonthly/1/9

@@ -4,16 +4,16 @@ const mysql = require('../dbcon')
 
 const callbacks = require('./callbacks')
 
-const attributes = ['plantID', 'monthID', 'harvestReady', 'monthState']
+const attributes = ['plantID', 'monthID', 'harvestReady']
 
 //queries
 const getAllPlantMonthly = `SELECT * FROM plantMonthlyState`
 const insertPlantMonthly = `INSERT INTO plantMonthlyState
-    (plantID, monthID, harvestReady, monthState)
-    VALUES (?, ?, ?, ?)`
+    (plantID, monthID, harvestReady)
+    VALUES (?, ?, ?)`
 const getSinglePlantMonthly = `SELECT * FROM plantMonthlyState
     WHERE plantID =? AND monthID=?`
-const updatePlantMonthly = `UPDATE plantMonthlyState SET plantID=?, monthID=?, harvestReady=?, monthState=?
+const updatePlantMonthly = `UPDATE plantMonthlyState SET plantID=?, monthID=?, harvestReady=?
     where plantID =? AND monthID=?`
 const deletePlantMonthly = `DELETE FROM plantMonthlyState WHERE plantID =? AND monthID=?`
 
