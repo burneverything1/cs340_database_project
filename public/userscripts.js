@@ -1,4 +1,5 @@
 import * as AJAX from "./AJAX.js";
+import { getAllUsers } from "./API.js";
 
 //CREATE new User
 // user is a object with {username, favoritePlants}
@@ -14,10 +15,7 @@ function editUser({ userID, username, favoritePlants }) {
     AJAX.put(`/users/${userID}`, { username, favoritePlants }, () => location.reload())
 }
 
-//READ all users
-function getAllUsers(callback) {
-    AJAX.get("/users/", callback);
-}
+
 
 //populate allUsersPlants table
 function populateUserTable(users) {

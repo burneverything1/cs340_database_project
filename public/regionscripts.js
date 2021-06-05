@@ -37,10 +37,8 @@ function populateRegionTable(regions) {
             const nameText = document.createTextNode(region.regionName);
 
             const stateCell = document.createElement("td");
-            AJAX.get(`/regions/${region.regionID}`, ([region]) => {
-                const stateText = document.createTextNode(region.state);
-                stateCell.appendChild(stateText);
-            })
+            const stateText = document.createTextNode(region.state);
+                
             const deleteCell = document.createElement("td");
             const deleteButton = document.createElement("button");
             const deleteButtonText = document.createTextNode("Delete");
@@ -60,6 +58,8 @@ function populateRegionTable(regions) {
             idCell.appendChild(idText);
 
             nameCell.appendChild(nameText);
+
+            stateCell.appendChild(stateText);
 
             deleteCell.appendChild(deleteButton);
             deleteButton.appendChild(deleteButtonText);

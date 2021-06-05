@@ -11,24 +11,26 @@
     </head>
 
     <body>
-        <script type="module" src="collectedplants.js"></script>
+        <script type="module" src="saveduserplants.js"></script>
         <h1>Add New Saved User Plant</h1>
-        <form>
+        <form id="newUserPlantForm">
             <div>
-                <label for="username_plant">What is your username?</label>
-                <input type="text" name="username_plant" id="username_plant">
+                <label for="userID">User: </label>
+                <select name="userID" id="newUserPlantFromUserField">
+                </select>
             </div>
             <div>
-                <label for="whatplant">What plant did you harvest?</label>
-                <input type="text" name="whatplant" id="whatplant">
+                <label for="plantID">Plant: </label>
+                <select name="plantID" id="newUserPlantFromPlantField">
+                </select>
             </div>
             <div>
-                <label for="dayharvested">What day did you harvest?</label>
-                <input type="date" name="dayharvested" id="dayharvested">
+                <label for="dayHarvested">What day did you harvest?</label>
+                <input type="date" name="dayHarvested">
             </div>
             <div>
-                <label for="growthlevels">How abundant was the plant growth?</label>
-                <select name="growthlevels" id="growthlevels">
+                <label for="plantGrowthLevels">How abundant was the plant growth?</label>
+                <select name="plantGrowthLevels">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -37,8 +39,8 @@
                 </select>
             </div>
             <div>
-                <label for="flavorlevels">How tasty was the plant?</label>
-                <select name="flavorlevels" id="flavorlevels">
+                <label for="flavorRate">How tasty was the plant?</label>
+                <select name="flavorRate">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -47,21 +49,22 @@
                 </select>
             </div>
             <div>
-                <label for="locationharvested">What region was the plant harvested?</label>
-                <input type="text" name="locationharvested" id="locationharvested">
+                <label for="locationHarvested">What region was the plant harvested?</label>
+                <input type="text" name="locationHarvested">
             </div>
             <div>
                 <button type="submit">Save New User Plant</button>
             </div>
         </form>
-        </form>
-        <table style="width:40%">
+        <table>
             <thead>
                 <tr>
                     <th>User Name</th>
-                    <th>Plant</th>
+                    <th>Plant Name</th>
                     <th>Day Harvested</th>
-                    <th>Location</th>
+                    <th>Plant Growth Level</th>
+                    <th>Flavor Rate</th>
+                    <th>Location Harvested</th>
                 </tr>
             </thead>
             <tbody id="savedUserPlantsTable">
