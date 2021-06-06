@@ -60,18 +60,35 @@ export function populateTableData(tableName, editFormName, data, headers, displa
                 //Blank cell
                 cell.innerHTML = "";
 
-                //Add form inputs
-                const input = document.createElement("input");
-                cell.appendChild(input);
-                input.setAttribute("type", type);
-                input.setAttribute("name", ecol);
-                input.setAttribute("value", rowData[ecol]);
-                input.setAttribute("form", editFormName);
-
-                //Bind edit form
-                document.getElementById(editFormName)
-                                .addEventListener("submit", AJAX.formSubmitAction((newData)=>editFn(rowData, newData)))
-
+                if (typeof type === "string") {
+                    //Add form inputs
+                    const input = document.createElement("input");
+                    cell.appendChild(input);
+                    input.setAttribute("type", type);
+                    input.setAttribute("name", ecol);
+                    input.setAttribute("value", rowData[ecol]);
+                    input.setAttribute("form", editFormName);
+                } else if (typeof type === "object") {
+                    const select = document.createElement("select");
+                    select.setAttribute("name", ecol);
+                    select.setAttribute("form", editFormName);
+                    cell.appendChild(select);
+                    const checkDefault =
+                        type.checkDefault !== undefined ? type.checkDefault
+                            : (row, b) => row[ecol].toString() === b.toString()
+                    Object.entries(type).forEach(([value, display]) => {
+                        if (value !== "checkDefault") {
+                            const option = document.createElement("option");
+                            select.appendChild(option);
+                            const optionText = document.createTextNode(display);
+                            option.appendChild(optionText);
+                            option.setAttribute("value", value);
+                            if (checkDefault(rowData, value)) {
+                                option.setAttribute("selected", "selected");
+                            }
+                        }
+                    });
+                }
             });
 
             //Add save button
@@ -88,6 +105,10 @@ export function populateTableData(tableName, editFormName, data, headers, displa
             const cancelButtonText = document.createTextNode("Cancel");
             cancelButton.appendChild(cancelButtonText);
             cancelButton.addEventListener("click", () => location.reload());
+
+            //Bind edit form
+            document.getElementById(editFormName)
+                .addEventListener("submit", AJAX.formSubmitAction((newData) => editFn(rowData, newData)))
         });
 
         //Add delete button
