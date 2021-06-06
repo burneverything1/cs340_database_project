@@ -7,25 +7,6 @@ function getAllSavedUserPlants(callback) {
     AJAX.get("/savedplants/", callback);
 }
 
-//populate savedUserPlants table
-function populatePlantsTable(plants) {
-    const body = document.getElementById("savedUserPlantsTable");
-    //Clear previous table data
-    body.innerHTML = "";
-    //Fill new table data
-    const cols = ["username", "plantname", "dayHarvested", "locationHarvested"];
-    plants.forEach((plant) => {
-        const row = document.createElement("tr");
-        body.appendChild(row);
-        cols.forEach(key => {
-            const cell = document.createElement("td");
-            const text = document.createTextNode(plant[key]);
-            row.appendChild(cell);
-            cell.appendChild(text);
-        });
-    });
-}
-
 function populateUserField(users) {
     const editOptions = document.getElementById("newUserPlantFromUserField");
     editOptions.innerHTML = "";

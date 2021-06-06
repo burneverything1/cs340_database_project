@@ -69,10 +69,12 @@ export function populateTableData(tableName, editFormName, data, headers, displa
                     input.setAttribute("value", rowData[ecol]);
                     input.setAttribute("form", editFormName);
                 } else if (typeof type === "object") {
+                    //Add dropdown menu
                     const select = document.createElement("select");
                     select.setAttribute("name", ecol);
                     select.setAttribute("form", editFormName);
                     cell.appendChild(select);
+                    //User can supply method for checking default value
                     const checkDefault =
                         type.checkDefault !== undefined ? type.checkDefault
                             : (row, b) => row[ecol].toString() === b.toString()
