@@ -57,54 +57,8 @@
         <input type="text" name="pattern"/>
         <button type="submit">Search</button>
     </form>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Plant Name</th>
-                <th>Harvest Season Start</th>
-                <th>Harvest Season End</th>
-                <th>Flavor Profile</th>
-                <th>Eaten Raw</th>
-                <th>How to Cook</th>
-            </tr>
-        </thead>
-        <tbody id="allPlantsTable"></tbody>
-    </table>
-    <h1>Edit Plant</h1>
-    <form id="editPlantForm">
-        <div>
-            <select name="plantID" id="editPlantID">
-            </select>
-        </div>
-        <div>
-            <label for="plantName">Name: </label>
-            <input type="text" name="plantName" />
-        </div>
-        <div>
-            <label for="harvestSeasonStart">Harvest Season Start: </label>
-            <input type="date" name="harvestSeasonStart" />
-        </div>
-        <div>
-            <label for="harvestSeasonEnd">Harvest Season End: </label>
-            <input type="date" name="harvestSeasonEnd" />
-        </div>
-        <div>
-            <label for="flavorProfile">Flavor Profile: </label>
-            <input type="text" name="flavorProfile" />
-        </div>
-        <div>
-            <label for="howToCook">How to Cook: </label>
-            <input type="text" name="howToCook" />
-        </div>
-        <div>
-            <label for="eatenRaw">Eaten Raw: </label>
-            <input type="checkbox" name="eatenRaw" />
-        </div>
-        <div>
-            <button type="submit">Edit Plant</button>
-        </div>
-    </form>
+    <table id="allPlantsTable"></table>
+    <form id="editPlantForm"></form>
 </body>
 
 </html>

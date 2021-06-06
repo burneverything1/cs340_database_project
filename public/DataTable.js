@@ -1,3 +1,5 @@
+import * as AJAX from "./AJAX.js";
+
 //Generic function for creating data tables
 export function populateTableData(tableName, editFormName, data, headers, displayCols, deleteFn, editCols, editFn) {
     //Blank current table data
