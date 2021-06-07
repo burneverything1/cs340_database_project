@@ -1,4 +1,5 @@
 import * as AJAX from "./AJAX.js";
+import {getAllEnvironments} from "./API.js";
 
 //CREATE new environ
 // user is a object with {plantEffect, environName}
@@ -11,10 +12,6 @@ function editEnvironment({ environID, environName, plantEffect }) {
     AJAX.put(`/environs/${environID}`, { environName, plantEffect }, () => location.reload())
 }
 
-
-function getAllEnvirnoments(callback) {
-    AJAX.get("/environs/", callback);
-}
 
 //Ajax request to get the single environment 
 function getSingleEnviroment(id, callback) {
@@ -92,5 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
 
     //Populate the environmental factors table
-    getAllEnvirnoments(populateEnvironFactorsTable);
+    getAllEnvironments(populateEnvironFactorsTable);
 });

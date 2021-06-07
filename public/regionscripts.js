@@ -1,4 +1,5 @@
 import * as AJAX from "./AJAX.js";
+import { getAllRegions } from "./API.js";
 
 //CREATE new Region
 function createNewRegion(region) {
@@ -10,11 +11,6 @@ function createNewRegion(region) {
 function editregion({ regionID, regionName, state }) {
     //Submit region data, then refresh page
     AJAX.put(`/regions/${regionID}`, { regionName, state }, () => location.reload())
-}
-
-//READ all regions
-function getAllRegions(callback) {
-    AJAX.get("/regions/", callback);
 }
 
 //populate region table
