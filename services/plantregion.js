@@ -7,7 +7,14 @@ const callbacks = require('./callbacks')
 const attributes = ['plantID', 'regionID']
 
 //queries
-const getAllPlantRegion = `SELECT * FROM plantRegionList`
+const getAllPlantRegion = `
+SELECT pr.plantID, pr.regionID, r.regionName, p.plantName 
+FROM plantRegionList pr
+INNER JOIN plants p
+    ON pr.plantID = p.plantID
+INNER JOIN regions r
+    ON pr.regionID = r.regionID
+`
 const insertPlantRegion = `INSERT INTO plantRegionList
     (plantID, regionID)
     VALUES (?, ?)`
