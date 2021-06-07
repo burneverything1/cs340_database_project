@@ -18,3 +18,7 @@ export function getAllEnvironments(callback) {
 export function getAllRegions(callback) {
     AJAX.get("/regions/", callback);
 }
+
+export function getAllMonths(callback) {
+    AJAX.get("/months/", callback);
+}

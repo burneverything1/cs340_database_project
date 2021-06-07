@@ -7,7 +7,14 @@ const callbacks = require('./callbacks')
 const attributes = ['plantID', 'monthID', 'harvestReady']
 
 //queries
-const getAllPlantMonthly = `SELECT * FROM plantMonthlyState`
+const getAllPlantMonthly = `
+SELECT pm.monthID, pm.plantID, p.plantName, m.monthName, pm.harvestReady
+FROM plantMonthlyState pm
+INNER JOIN months m
+    ON pm.monthID = m.monthID
+INNER JOIN plants p
+    ON pm.plantID = p.plantID
+`
 const insertPlantMonthly = `INSERT INTO plantMonthlyState
     (plantID, monthID, harvestReady)
     VALUES (?, ?, ?)`
