@@ -7,7 +7,14 @@ const callbacks = require('./callbacks')
 const attributes = ['environID', 'regionID']
 
 //queries
-const getAllRegionEnv = `SELECT * FROM regionEnviron`
+const getAllRegionEnv = `
+SELECT re.environID, re.regionID, r.regionName, e.environName
+FROM regionEnviron re
+INNER JOIN environFactors e
+    ON re.environID = e.environID
+INNER JOIN regions r
+    ON re.regionID = r.regionID
+`
 const insertRegionEnviron = `INSERT INTO regionEnviron
     (environID, regionID)
     VALUES (?, ?)`

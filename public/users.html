@@ -21,6 +21,8 @@
         <li class="navelement"><a href="/addnewregion.html">Region</a></li>
         <li class="navelement"><a href="/plants.html">Plants</a></li>
         <li class="navelement"><a href="/environs.html">Environmental Factors</a></li>
+        <li class="navelement"><a href="/regionenviron.html">RegionEnviron</a></li>
+        <li class="navelement"><a href="/plantregionlist.html">Plant Region List</a></li>
     </ul>
 
     <h1>Add New User</h1>
@@ -38,35 +40,9 @@
         </div>
     </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Users</th>
-                <th>Favorite Plant</th>
-            </tr>
-        </thead>
-        <tbody id="allUsersTable"></tbody>
-    </table>
+    <table id="allUsersTable"></table>
+    <form id="editUserForm"></form>
 
-    <h1>Edit user</h1>
-    <form id="editUserForm" name="editUserForm">
-        <div>
-            <select name="userID" id="editUserID">
-            </select>
-        </div>
-        <div>
-            <label for="username">Enter username:</label>
-            <input type="text" name="username">
-        </div>
-        <div>
-            <label for="favoritePlants">What are your favorite plants?</label>
-            <input type="text" name="favoritePlants">
-        </div>
-        <div>
-            <button type="submit">Edit User</button>
-        </div>
-    </form>
     <h1>User Search </h1>
     <form id="userSearchForm">
         <div>
