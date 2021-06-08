@@ -10,7 +10,7 @@ app.use(morgan('tiny'))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.set('port', 3000)
+app.set('port', 10990)
 
 //import express routers
 const plants = require('./services/plants')
