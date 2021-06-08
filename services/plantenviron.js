@@ -7,7 +7,14 @@ const callbacks = require('./callbacks')
 const attributes = ['plantID', 'environID', 'environImpact']
 
 //queries
-const getAllPlantEnviron = `SELECT * FROM plantEnvironImpacts`
+const getAllPlantEnviron = `
+SELECT pe.environID, pe.plantID, pe.environImpact, p.plantName, e.environName
+FROM plantEnvironImpacts pe
+INNER JOIN plants p
+    ON pe.plantID = p.plantID
+INNER JOIN environFactors e
+    ON pe.environID = e.environID
+`
 const insertPlantEnviron = `INSERT INTO plantEnvironImpacts
     (plantID, environID, environImpact)
     VALUES (?, ?, ?)`

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body style="background-color: rgb(44, 172, 76)"></body>
+<body style="background-color: rgb(69, 95, 78)">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="project.css">
-    <title>Add New User</title>
-</head>
+    <title>Add New Plant Month List</title>
+  </head>
 
-<body>
-    <script type="module" src="userscripts.js"></script>
+  <body>
+    <script type="module" src="plantmonthlystate.js"></script>
 
     <ul id="navbar">
         <li class="navelement"><a href="/">Home</a></li>
@@ -27,35 +27,30 @@
         <li class="navelement"><a href="/plantenvironimpacts.html">Plant Environmental Impacts </a></li>
     </ul>
 
-    <h1>Add New User</h1>
-    <form id="newUserForm" name="newUserForm">
+    <h1>Add New Plant Monthly State</h1>
+    <form id="newMonthPlantForm">
         <div>
-            <label for="username">Enter username:</label>
-            <input type="text" name="username">
+            <label for="monthID">Month: </label>
+            <select name="monthID" id="newRegPlantMonthField">
+            </select>
         </div>
         <div>
-            <label for="favoritePlants">What are your favorite plants?</label>
-            <input type="text" name="favoritePlants">
+            <label for="plantID">Plant: </label>
+            <select name="plantID" id="newRegPlantPlantField">
+            </select>
         </div>
         <div>
-            <button type="submit">Add User</button>
-        </div>
-    </form>
-
-    <table id="allUsersTable"></table>
-    <form id="editUserForm"></form>
-
-    <h1>User Search </h1>
-    <form id="userSearchForm">
-        <div>
-            <label for="username">Enter User Name:</label>
-            <input type="text" name="username">
+            <label for="harvestReady">Harvest Ready: </label>
+            <select name="harvestReady">
+                <option value="true">true</option>
+                <option value="false">false</option>
+                <option value="true, but subprime">true, but subprime</option>
+            </select>
         </div>
         <div>
-            <input type="submit" value="Search">
+            <button type="submit">Save </button>
         </div>
     </form>
-    <div id="searchResult"></div>
-</body>
-
+    <table id="monthPlantTable"></table>
+    <form id="editMonthPlantForm"></form>
 </html>
